@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Src
+namespace BSTNS
 {
-    internal class Node
+    public class Node
     {
-        public Node Next;
-
+        public Node RightNode;
+        public Node LeftNode;
         public object Data;
+       
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Src", "Src\Src.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListTest", "LinkedListTest\LinkedListTest.csproj", "{8E0E12CA-F813-4568-8D60-EB6F437666D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSTNS", "BST\BSTNS.csproj", "{6FA90E1B-8FD8-4FAE-B089-56DFCC5947CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8E0E12CA-F813-4568-8D60-EB6F437666D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E0E12CA-F813-4568-8D60-EB6F437666D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E0E12CA-F813-4568-8D60-EB6F437666D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA90E1B-8FD8-4FAE-B089-56DFCC5947CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA90E1B-8FD8-4FAE-B089-56DFCC5947CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA90E1B-8FD8-4FAE-B089-56DFCC5947CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA90E1B-8FD8-4FAE-B089-56DFCC5947CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

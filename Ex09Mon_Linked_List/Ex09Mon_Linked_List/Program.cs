@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using BSTNS;
 
 namespace Ex09Mon_Linked_List
 {
@@ -15,44 +16,56 @@ namespace Ex09Mon_Linked_List
 
         private void Run()
         {
-            //MyList x = new MyList();
+            #region Binary/Linear Search
 
-            //for (int i = 0; i < 10000; i++)
+            //int smallSize = 1000;
+            //int largeSize = smallSize * 10;
+
+            //ClubMember[] smallLinear = new ClubMember[smallSize];
+            //ClubMember[] largeLinear = new ClubMember[largeSize];
+
+            //ClubMember[] smallBinary = new ClubMember[smallSize];
+            //ClubMember[] largeBinary = new ClubMember[largeSize];
+
+            //for (int i = 0; i < smallSize; i++)
             //{
-            //    x.Insert(CMFactory.GetClubMember());
+            //    smallLinear[i] = CMFactory.GetClubMember();
+            //    smallBinary[i] = CMFactory.GetClubMember();
+            //}
+            //for (int i = 0; i < largeSize; i++)
+            //{
+            //    largeLinear[i] = CMFactory.GetClubMember();
+            //    largeBinary[i] = CMFactory.GetClubMember();
             //}
 
-            int smallSize = 1000;
-            int largeSize = smallSize * 10;
-
-            ClubMember[] smallLinear = new ClubMember[smallSize];
-            ClubMember[] largeLinear = new ClubMember[largeSize];
-
-            ClubMember[] smallBinary = new ClubMember[smallSize];
-            ClubMember[] largeBinary = new ClubMember[largeSize];
-
-            for (int i = 0; i < smallSize; i++)
-            {
-                smallLinear[i] = CMFactory.GetClubMember();
-                smallBinary[i] = CMFactory.GetClubMember();
-            }
-            for (int i = 0; i < largeSize; i++)
-            {
-                largeLinear[i] = CMFactory.GetClubMember();
-                largeBinary[i] = CMFactory.GetClubMember();
-            }
-
-            long SLtime = SearchLinear(smallLinear);
-            Console.WriteLine("SearcLinear(smallLinear): " + SLtime + "ms");
-            long LLtime = SearchLinear(largeLinear);
-            Console.WriteLine("SearcLinear(largeLinear): " + LLtime + "ms");
+            //long SLtime = SearchLinear(smallLinear);
+            //Console.WriteLine("SearcLinear(smallLinear): " + SLtime + "ms");
+            //long LLtime = SearchLinear(largeLinear);
+            //Console.WriteLine("SearcLinear(largeLinear): " + LLtime + "ms");
 
 
-            smallBinary = PerformInsertionSort(smallBinary);
-            largeBinary = PerformInsertionSort(largeBinary);
-            BinarySearch(smallBinary);
-            BinarySearch(largeBinary);
+            //smallBinary = PerformInsertionSort(smallBinary);
+            //largeBinary = PerformInsertionSort(largeBinary);
+            //BinarySearch(smallBinary);
+            //BinarySearch(largeBinary);
+
+            #endregion
+            ////MyList x = new MyList();
+
+            ////for (int i = 0; i < 10000; i++)
+            ////{
+            ////    x.Insert(CMFactory.GetClubMember());
+            ////}
+
+            BST bst = new BST();
             
+            bst.Insert(20);
+            bst.Insert(10);
+            bst.Insert(5);
+            bst.Insert(15);
+            bst.Insert(30);
+            
+            bst.PrintTree();
 
             Console.Read();
         }
