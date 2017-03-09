@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using BSTNS;
+using HashTable;
 
 namespace Ex09Mon_Linked_List
 {
@@ -18,8 +21,8 @@ namespace Ex09Mon_Linked_List
         {
             #region Binary/Linear Search
 
-            //int smallSize = 1000;
-            //int largeSize = smallSize * 10;
+            int smallSize = 1000;
+            int largeSize = smallSize * 10;
 
             //ClubMember[] smallLinear = new ClubMember[smallSize];
             //ClubMember[] largeLinear = new ClubMember[largeSize];
@@ -50,24 +53,87 @@ namespace Ex09Mon_Linked_List
             //BinarySearch(largeBinary);
 
             #endregion
-            ////MyList x = new MyList();
+            //MyList x = new MyList();
 
-            ////for (int i = 0; i < 10000; i++)
-            ////{
-            ////    x.Insert(CMFactory.GetClubMember());
-            ////}
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    x.Insert(CMFactory.GetClubMember());
+            //}
+
+            #region BST
 
             BST bst = new BST();
-            
-            bst.Insert(20);
-            bst.Insert(10);
-            bst.Insert(5);
-            bst.Insert(15);
-            bst.Insert(30);
-            
+
+            for (int i = 0; i < 50000; i++)
+            {
+                bst.Insert(CMFactory.GetClubMember());
+            }
+
             bst.PrintTree();
 
+            #endregion
+
+            #region HashADT
+
+            //HashADT SmallHADT = new HashADT(smallSize);
+            //HashADT LargeHADT = new HashADT(largeSize);
+
+            //for (int i = 0; i < smallSize * 1.1; i++)
+            //{
+            //    SmallHADT.Insert(CMFactory.GetClubMember());
+            //}
+
+            //for (int i = 0; i < largeSize * 1.1;i++)
+            //{
+            //    LargeHADT.Insert(CMFactory.GetClubMember());
+            //}
+            
+            //HashSearch(SmallHADT);
+            //HashSearch(LargeHADT);
+
+            #endregion
+
+            
+
             Console.Read();
+        }
+
+        public void HashSearch(HashADT arr)
+        {
+            Stopwatch timer = new Stopwatch();
+            
+            Random rand = new Random();
+            ClubMember cm1 = new ClubMember();
+            ClubMember cm2 = new ClubMember();
+            ClubMember cm3 = new ClubMember();
+            HashNotNull(out cm1, arr._hashTable);
+            HashNotNull(out cm2, arr._hashTable);
+            HashNotNull(out cm3, arr._hashTable);
+
+            timer.Start();
+
+            Thread.Sleep(10);
+            for (int i = 0; i < 1000; i++)
+            {
+                arr.Search(cm1);
+                arr.Search(cm2);
+                arr.Search(cm3);
+            }
+
+            timer.Stop();
+            Console.WriteLine(timer.ElapsedMilliseconds);
+        }
+
+        public void HashNotNull( out ClubMember CM, IComparable[] arr)
+        {
+            Random rnd = new Random();
+            
+            do
+            {
+                CM = (ClubMember) arr[rnd.Next(arr.Length)];
+                
+            } while (CM == null);
+            
         }
 
         public void BinarySearch(ClubMember[] arr)

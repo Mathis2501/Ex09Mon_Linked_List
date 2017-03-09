@@ -11,6 +11,13 @@ namespace BSTNS
         public Node RightNode;
         public Node LeftNode;
         public object Data;
-       
+
+
+        public void PrintData()
+        {
+            RightNode?.PrintData();
+            Console.WriteLine(Data.ToString());
+            LeftNode?.PrintData();
+        }
     }
 }

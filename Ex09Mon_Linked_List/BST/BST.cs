@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,7 @@ namespace BSTNS
 
         public void Insert(IComparable data)
         {
-            Node N = Root;
-            bool running = true;
+            
             if (Root == null)
             {
                 Root = new Node();
@@ -23,18 +23,55 @@ namespace BSTNS
             }
             else
             {
-                while (running)
+                Node N = Root;
+                while (N != null)
                 {
-                    if (data.CompareTo(Root.Data) < 0)
+                    if (data.CompareTo(N.Data) < 0)
                     {
                         if (N.LeftNode == null)
                         {
                             N.LeftNode = new Node();
-                            running = false;
                             N.LeftNode.Data = data;
                             count++;
+                            break;
                         }
-                        else
+                        N = N.LeftNode;
+                    }
+                    if (data.CompareTo(N.Data) > 0)
+                    {
+                        if (N.RightNode == null)
+                        {
+                            N.RightNode = new Node();
+                            N.RightNode.Data = data;
+                            count++;
+                            break;
+                        }
+                        N = N.RightNode;
+                    }
+                    if (data.CompareTo(N.Data) == 0)
+                    {
+                        throw new DuplicateNameException("Duplicate NR.");
+                    }
+                }
+            }
+        }
+
+        public bool Search(IComparable data)
+        {
+            Node N = Root;
+            if (Root == null)
+            {
+                Root = new Node();
+                Root.Data = data;
+                count = 1;
+            }
+            else
+            {
+                while (N != null)
+                {
+                    if (data.CompareTo(Root.Data) < 0)
+                    {
+                        if (N.LeftNode == null)
                         {
                             N = N.LeftNode;
                         }
@@ -43,27 +80,21 @@ namespace BSTNS
                     {
                         if (N.RightNode == null)
                         {
-                            N.RightNode = new Node();
-                            running = false;
-                            N.RightNode.Data = data;
-                            count++;
-                        }
-                        else
-                        {
                             N = N.RightNode;
                         }
                     }
+                    if (data.CompareTo(N.Data) == 0)
+                    {
+                        return true;
+                    }
                 }
             }
+            return false;
         }
 
         public void PrintTree()
         {
-            Console.WriteLine(Root.Data.ToString());
-            Console.WriteLine(Root.LeftNode.Data.ToString());
-            Console.WriteLine(Root.LeftNode.LeftNode.Data.ToString());
-            Console.WriteLine(Root.LeftNode.RightNode.Data.ToString());
-            Console.WriteLine(Root.RightNode.Data.ToString());
+            Root.PrintData();
         }
     }
 }

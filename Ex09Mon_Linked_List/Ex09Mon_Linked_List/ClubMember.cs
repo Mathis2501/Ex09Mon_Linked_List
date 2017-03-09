@@ -31,12 +31,12 @@ namespace Ex09Mon_Linked_List
             return false;
         }
 
-        public override int GetHashCode() => Age.GetHashCode() + FName.GetHashCode() + LName.GetHashCode() + Nr.GetHashCode();
+        public override int GetHashCode() => Math.Abs(Age.GetHashCode() + FName.GetHashCode() + LName.GetHashCode() + Nr.GetHashCode());
 
         public int CompareTo(object CMN)
         {
             ClubMember CM = (ClubMember) CMN;
-            return Nr > CM.Nr ? 1 : (Nr == CM.Nr ? 0 : -1);
+            return Nr > CM.Nr ? -1 : (Nr == CM.Nr ? 0 : 1);
         }
     }
 }
